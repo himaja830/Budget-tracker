@@ -22,6 +22,10 @@ mongoose.connect("mongodb://localhost/budget", {
 
 // routes
 app.use(require("./routes/api.js"));
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://heroku_9nl18b21:9u6jnpa8u604s5je35pqmcthua@ds061076.mlab.com:61076/heroku_9nl18b21",
+  { useNewUrlParser: true, useUnifiedTopology: true }
+);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
